@@ -1,0 +1,69 @@
+# Copyright (C) 2023 biohzrdmx
+# This file is distributed under the same license as the WP Toggle Toolbar plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Toggle Toolbar 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/biohzrdmx-toolbar\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-05-14T23:52:33+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: toolbar\n"
+
+#. Plugin Name of the plugin
+msgid "WP Toggle Toolbar"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "http://github.com/biohzrdmx/wp-toolbar"
+msgstr ""
+
+#. Description of the plugin
+msgid "Easily toggle the WordPress admin toolbar"
+msgstr ""
+
+#. Author of the plugin
+msgid "biohzrdmx"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://github.com/biohzrdmx"
+msgstr ""
+
+#: plugin.php:33
+#: plugin.php:36
+msgid "Toolbar"
+msgstr ""
+
+#: plugin.php:44
+#: plugin.php:47
+msgid "Hide"
+msgstr ""
+
+#: plugin.php:54
+msgid "WordPress"
+msgstr ""
+
+#: plugin.php:60
+msgid "Dashboard"
+msgstr ""
+
+#: plugin.php:64
+msgid "Log Out"
+msgstr ""
+
+#: plugin.php:72
+msgid "Edit page"
+msgstr ""
+
+#: plugin.php:72
+msgid "Edit post"
+msgstr ""
+
+#: plugin.php:78
+msgid "Show toolbar"
+msgstr ""
