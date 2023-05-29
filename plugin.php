@@ -49,41 +49,43 @@ if( ! class_exists('ToggleToolbarPlugin') ) {
 						));
 					}, 200);
 				} else {
-					add_action('wp_footer', function() use ($wp) {
-						$admin_url = admin_url( '/' );
-						$menu_text = __('WordPress', 'toolbar');
-						array_unshift($wp->query_vars, ['wp_admin_hide' => 0]);
-						$url = add_query_arg( $wp->query_vars, home_url( $wp->request ) );
-						$submenu_items = [
-							[
-								'url' => admin_url('/'),
-								'text' => __('Dashboard', 'toolbar'),
-							],
-							[
-								'url' => wp_logout_url( home_url('/') ),
-								'text' => __('Log Out', 'toolbar'),
-							],
-							[
-								'url' => $url,
-								'text' => __('Show toolbar', 'toolbar'),
-							],
-						];
-						# Add an edit item
-						$edit = get_edit_post_link();
-						if ($edit && ( is_page() || is_singular() )) {
-							array_splice($submenu_items, 1, 0, [
+					if ( get_current_user_id() ) {
+						add_action('wp_footer', function() use ($wp) {
+							$admin_url = admin_url( '/' );
+							$menu_text = __('WordPress', 'toolbar');
+							array_unshift($wp->query_vars, ['wp_admin_hide' => 0]);
+							$url = add_query_arg( $wp->query_vars, home_url( $wp->request ) );
+							$submenu_items = [
 								[
-									'url' => $edit,
-									'text' => is_page() ? __('Edit page', 'toolbar') : __('Edit post', 'toolbar'),
-								]
-							]);
-						}
-						$submenu_items = array_map(function($item) {
-							return sprintf('<li><a href="%s">%s</a></li>', $item['url'], $item['text']);
-						}, $submenu_items);
-						$submenu_items = implode('', $submenu_items);
-						printf('<div class="wp-admin-menu"><ul><li><a href="%s">%s</a><ul>%s</ul></li></ul></div>', $admin_url, $menu_text, $submenu_items);
-					});
+									'url' => admin_url('/'),
+									'text' => __('Dashboard', 'toolbar'),
+								],
+								[
+									'url' => wp_logout_url( home_url('/') ),
+									'text' => __('Log Out', 'toolbar'),
+								],
+								[
+									'url' => $url,
+									'text' => __('Show toolbar', 'toolbar'),
+								],
+							];
+							# Add an edit item
+							$edit = get_edit_post_link();
+							if ($edit && ( is_page() || is_singular() )) {
+								array_splice($submenu_items, 1, 0, [
+									[
+										'url' => $edit,
+										'text' => is_page() ? __('Edit page', 'toolbar') : __('Edit post', 'toolbar'),
+									]
+								]);
+							}
+							$submenu_items = array_map(function($item) {
+								return sprintf('<li><a href="%s">%s</a></li>', $item['url'], $item['text']);
+							}, $submenu_items);
+							$submenu_items = implode('', $submenu_items);
+							printf('<div class="wp-admin-menu"><ul><li><a href="%s">%s</a><ul>%s</ul></li></ul></div>', $admin_url, $menu_text, $submenu_items);
+						});
+					}
 				}
 
 				if ( isset( $_REQUEST['wp_admin_hide'] ) ) {
