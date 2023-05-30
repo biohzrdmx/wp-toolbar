@@ -6,7 +6,7 @@ declare(strict_types = 1);
  * Plugin Name: WP Toggle Toolbar
  * Description: Easily toggle the WordPress admin toolbar
  * Author: biohzrdmx
- * Version: 1.0
+ * Version: 1.1
  * Plugin URI: http://github.com/biohzrdmx/wp-toolbar
  * Author URI: http://github.com/biohzrdmx
  * Text Domain: toolbar
